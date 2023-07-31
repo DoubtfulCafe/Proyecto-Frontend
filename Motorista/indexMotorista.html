@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/ba541049fa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/estilos-motoristaindex.css">
+</head>
+<body>
+    <div id="encabezado">
+        <center>Perfil del Motorista</center>
+    </div>
+    
+    <div id="contenedor1-perfil">
+        <section id="fondo-tarjeta" class="degradado-difuminado"></section>
+        <section id="perfil-motorista">
+            <img id="img-perfil-motorista" class="imagen-redonda" src="assets/img_motorista/foto-perfil-motorista.jpg" alt="">
+            <section id="nombre-tarjeta-perfil">
+                <section id="texto-nombre">
+                    Kimpachi Sensei
+                </section>
+                <section id="texto-codigo">
+                    ID: 010823
+                </section>
+            </section>
+        </section>
+        <section id="informacion">
+            <i class="fa-solid fa-pen"></i>
+            <label for="nombre-motorista">Nombre:</label>
+            <p>Kimpachi Sensei</p>
+            <label for="telefono-motorista">Telefono:</label>
+            <p>9871-8916</p>
+            <label for="correo-motorista">Correo Electronico:</label>
+            <p>kimpachisensei@gmail.com</p>
+            <!-- <input type="text" id="nombre-motorista" name="nombre"> -->
+        </section>
+    </div>
+
+    <div id="pie-pagina" class="borde-difuminado">
+        <a href="indexMotorista.html" id="icono-user" class="seleccionado"><i class="fa-solid fa-user"></i></a>
+        <a href="PedidosMotorista.html" id="icono-pedidos" class="no-seleccionado"><i  class="fa-solid fa-clipboard-list"></i></a>
+        <a href="PedidosPendientesMotorista.html" class="no-seleccionado"  id="icono-pendientes"><i class="fa-solid fa-clock"></i></a>
+    </div>
+
+
+
+    <script src="assets/js/controladorMotorista.js"></script>
+</body>
+</html>

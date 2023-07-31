@@ -224,3 +224,7 @@ const productos = [
     }
     
 ];
+
+function CargarProductos() {
+    
+}

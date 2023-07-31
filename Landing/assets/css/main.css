@@ -6,9 +6,23 @@ la paleta de colores*/
     --clr-main: #4b33a8;
     --clr-main-light: #785ce9;
     --clr-main-dark: #221655;
-    --clr-white: #ececec;
+    --clr-white: rgba(255, 255, 255, 0.682);
     --clr-gray: #e2e2e2;
     --clr-red: #961818;
+}
+
+.degradado-difuminado {
+    background: linear-gradient(45deg, 
+      rgba(195, 107, 217, 0.6),  /* Color con transparencia */
+      rgba(61, 41, 177, 0.6),    /* Color con transparencia */
+      rgba(108, 101, 196, 0.6),  /* Color con transparencia */
+      rgba(195, 107, 217, 0.6)   /* Color con transparencia */
+    );
+    /* Otras propiedades de diseño si las necesitas */
+    /* width: ...; */
+    /* height: ...; */
+    /* padding: ...; */
+    /* etc. */
 }
 
 *{
@@ -17,6 +31,12 @@ la paleta de colores*/
     box-sizing: border-box;
     font-family: 'Rubik', sans-serif;
 }
+
+body{
+    background-color: #0d0c17;
+    color: white;
+}
+
 
 h1, h2, h3 ,h4, h5,h6,p,a,input,textarea,ul{
     margin: 0;
@@ -37,7 +57,7 @@ y usaremos fr para tener una fraccion de espacio disponible*/
 .envoltorio{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    background-color: var(--clr-main);
+    /* background-color: var(--clr-main); */
 }
 /*Css aside*/
 aside{

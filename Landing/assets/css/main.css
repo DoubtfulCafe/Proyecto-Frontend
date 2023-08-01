@@ -168,6 +168,10 @@ main{
 /*reseteamos el tamaño original de nuestras imagenes
 y le pondremos un max with 100 porciento asi no ocupara mas del
 100% de su padre que es la grilla*/
+img{
+    width: 100%;
+    height: 70%;
+}
 .producto-imagen{
     max-width: 100%;
     border-radius: 1rem;

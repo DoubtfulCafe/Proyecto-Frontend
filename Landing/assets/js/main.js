@@ -220,8 +220,8 @@ const contenedorProducto = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 
 
-function CargarProductos() {
-    productos.forEach(producto => {
+function CargarProductos(productosElegidos) {
+    productosElegidos.forEach(producto => {
 
         const div =document.createElement("div")
         div.classList.add("producto")
@@ -240,6 +240,20 @@ function CargarProductos() {
     
 }
 
-CargarProductos();
+CargarProductos(productos);
+
+botonesCategorias.forEach(boton => {
+    boton.addEventListener("click",(e)=>{
+
+        botonesCategorias.forEach(boton => boton.classList.remove("active"))
+        e.currentTarget.classList.add("active");
+
+        const productosBoton=productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+        
+        console.log(productosBoton)
+        CargarProductos(productosBoton);
+
+    })
+});
 
 

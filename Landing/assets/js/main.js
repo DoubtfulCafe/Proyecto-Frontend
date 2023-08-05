@@ -218,9 +218,13 @@ const productos = [
 
 const contenedorProducto = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
-
+const tituloPrincipal = document.querySelector("#titulo-principal");
+let botonesAgregar = document.querySelectorAll(".producto-agregar");
 
 function CargarProductos(productosElegidos) {
+
+    contenedorProducto.innerHTML="";
+
     productosElegidos.forEach(producto => {
 
         const div =document.createElement("div")
@@ -248,12 +252,24 @@ botonesCategorias.forEach(boton => {
         botonesCategorias.forEach(boton => boton.classList.remove("active"))
         e.currentTarget.classList.add("active");
 
-        const productosBoton=productos.filter(producto => producto.categoria.id === e.currentTarget.id);
-        
-        console.log(productosBoton)
-        CargarProductos(productosBoton);
+        if (e.currentTarget.id!="todos") {
+            const productoCategoria=productos.find(producto=> producto.categoria.id===e.currentTarget.id);
+              //mas que todo aqui estamos trayendo al primero objeto y apartir de ese sacaremos su categoria
+            tituloPrincipal.innerHTML=productoCategoria.categoria.nombre;
+          
+            const productosBoton=productos.filter(producto => producto.categoria.id === e.currentTarget.id);  
+             console.log(productosBoton)
+            CargarProductos(productosBoton);
+        }
+        else{
+            tituloPrincipal.innerHTML="Todos los productos";
+            CargarProductos(productos);
+        }
 
     })
 });
+//function A
+
+
 
 

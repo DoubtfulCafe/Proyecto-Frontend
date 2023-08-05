@@ -220,6 +220,9 @@ const contenedorProducto = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
 let botonesAgregar = document.querySelectorAll(".producto-agregar");
+const numerito= document.querySelector("#numerito");
+
+
 
 function CargarProductos(productosElegidos) {
 
@@ -234,13 +237,16 @@ function CargarProductos(productosElegidos) {
         <div class="producto-detalle">
             <h3 class="producto-titulo">${producto.titulo} </h3>
             <p class="producto-precio">${producto.precio}</p>
-            <button class="producto-agregar id"${producto.id}">Agregar</button>
+            <button class="producto-agregar" id="${producto.id}">Agregar</button>
         </div>
         `;
 
         contenedorProducto.append(div);
 
     });
+
+    actualizarBotonesAgg();
+    //console.log(botonesAgregar);
     
 }
 
@@ -255,10 +261,10 @@ botonesCategorias.forEach(boton => {
         if (e.currentTarget.id!="todos") {
             const productoCategoria=productos.find(producto=> producto.categoria.id===e.currentTarget.id);
               //mas que todo aqui estamos trayendo al primero objeto y apartir de ese sacaremos su categoria
-            tituloPrincipal.innerHTML=productoCategoria.categoria.nombre;
-          
+            //console.log(productoCategoria)
+            tituloPrincipal.innerText = productoCategoria.categoria.nombre;
             const productosBoton=productos.filter(producto => producto.categoria.id === e.currentTarget.id);  
-             console.log(productosBoton)
+             //console.log(productosBoton)
             CargarProductos(productosBoton);
         }
         else{
@@ -267,8 +273,72 @@ botonesCategorias.forEach(boton => {
         }
 
     })
+
+    
+    
 });
-//function A
+
+//console.log(botonesAgregar);
+//se llamara esta funcion para tener una instancia de los botones a la hora de crearlos
+//mas que todo para tener las lista de los botones
+//cada vez que se ejecute la funcion de cargr productos
+//entonces cada vez se actualizaran los botones agregar
+//se asiganaran se traeran del DOM y le agregamos un event lsitener
+function actualizarBotonesAgg(){
+    botonesAgregar = document.querySelectorAll(".producto-agregar");
+    //LOS ESTAREMOS REASIGNANDO
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener("click", agregarAlCarrito);
+    })
+
+};
+
+const productosEnCarrito=[];
+//como en el boton en la linea 237 le estamos mandando el id del producto que 
+//que queremos que registre sera mas facil agregarlo al array de productos cuando
+//lo agregen
+
+function agregarAlCarrito(evento){
+
+    const idBoton = evento.currentTarget.id;
+    //jalamos el id de producto que anterior mente le asignamos al boton en la linea 237
+    //console.log(idBoton)
+    const productoAgregado = productos.find(producto => producto.id === idBoton);
+    //recordemos que find nos devuelve el primer elemento que coincida con lo que le pngamops adentro
+
+    //logica para verificar si ya existe ese producto en el array y no agregarlo como tal otravez sino
+    // aumentar la cantidad
+    //some nos devuelve un true  si encuentra o no un producto repetido
+    if (productosEnCarrito.some(producto => producto.id === idBoton)) {
+       const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+       //en la linea 310 estamos sacando el indice del producto que coincidio con el id que recibio
+        productosEnCarrito[index].cantidad++;
+        //y en la linea 312 ya teniendo ese indice de ese objeto en el array entonces, igresamos a cantidad y la aumentamos
+        
+    } else {
+        productoAgregado.cantidad= 1; 
+        productosEnCarrito.push(productoAgregado);
+        
+    }
+
+    actualizarNumerito();
+
+    localStorage.setItem("productos-en-carrito",JSON.stringify(productosEnCarrito));
+    //aqui estamos mandando el array de productos en carrito al almacenamiento del local storage
+    // para mas adelante mandar esa informacion al carrito
+    // la idea de hacer esto directamente asi es para tener informacion persistentente en el navegador del usuario
+    //pero no mandar esa informacion directamente a la base de datos sino hasta que se realice la compra
+}
+
+function actualizarNumerito(){
+    let aumentoNumerito= productosEnCarrito.reduce((acumulador,producto)=>acumulador+producto.cantidad,0)
+    //pracricamente usaremos el metodo reduce el cual tendra dos variables el acumulador y el producto
+    //entonces cada vez que agreguemos x cantidad de x productos entonces lo ira almacenando en acumulador
+    // el 0 del final es porque la funcion pide  con que valor quieres que comience 
+    //console.log(numerito);
+    numerito.innerText=aumentoNumerito;
+}
+
 
 
 

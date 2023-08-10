@@ -293,7 +293,21 @@ function actualizarBotonesAgg(){
 
 };
 
-const productosEnCarrito=[];
+//mas qwu todo lo que hacemos aqui es que en nuestro front quedede esa persistencia del local storage reflejada cuando cambiamos de pagina entre main y carrito
+let productosEnCarrito;
+
+let productoEnCaritoList= localStorage.getItem("productos-en-carrito");
+const productosEnCarritoList = localStorage.getItem("productos-en-carrito");
+if (productosEnCarritoList) {
+
+     productosEnCarrito=JSON.parse(productosEnCarritoList) ;
+     actualizarNumerito();
+    
+} else {
+    productosEnCarrito=[];
+    
+}
+
 //como en el boton en la linea 237 le estamos mandando el id del producto que 
 //que queremos que registre sera mas facil agregarlo al array de productos cuando
 //lo agregen
@@ -330,6 +344,7 @@ function agregarAlCarrito(evento){
     //pero no mandar esa informacion directamente a la base de datos sino hasta que se realice la compra
 }
 
+//mas que todo creamos una funcion como tal ya que se fue dando la necesidad de usar la misma logica en dos lugares del codigo
 function actualizarNumerito(){
     let aumentoNumerito= productosEnCarrito.reduce((acumulador,producto)=>acumulador+producto.cantidad,0)
     //pracricamente usaremos el metodo reduce el cual tendra dos variables el acumulador y el producto

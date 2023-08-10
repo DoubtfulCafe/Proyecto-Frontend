@@ -4,9 +4,12 @@ const carritoConProductos = document.querySelector("#carrito-con-productos");
 const carritoAcciones = document.querySelector("#carrito-acciones");
 const carritoComprado = document.querySelector("#carrito-comprado");
 let botonesEliminar=document.querySelectorAll(".carrito-producto-eliminar")
-//luego aqui en traeremos los productos que estan el el locacal storage
 const botonVaciar = document.querySelector("#carrito-acciones-vaciar");
+const botonComprar = document.querySelector("#carrito-aciones-comprar");
+const contenedorTotal= document.querySelector("#total");
 let productodEnCarrito = localStorage.getItem("productos-en-carrito");
+//luego aqui en traeremos los productos que estan el el locacal storage
+
 productodEnCarrito= JSON.parse(productodEnCarrito);
 //ahora recordemos que tenemos dos formas en nuestro carrito la primera es cuando no tenemos ningun producto agregado al 
 //carrito entonces se estara mostrando el mensaje  carrito esta vacio que esta en la linea 44 del html de carrito
@@ -67,6 +70,7 @@ function cargarProductosCarrito() {
     
     }
     actualizarBotonesEliminar();
+    actualizarTotal();
 };
 cargarProductosCarrito();
 
@@ -105,4 +109,23 @@ function vaciarCarrito(e) {
     cargarProductosCarrito();
 }
 
+//mira esta funcion lo que hace es que va a sumar el total todos los productos que se agregen en el carrito
+// de que manera pues tenemos la variable acumulador en ella se sumara todos los totales , tenemos la variable prooductos
+// y pues ira recolentando el total de cada producto dependiendo su precio y cantidad
+function actualizarTotal() {
+    const totalCalculado=productodEnCarrito.reduce((acumulador,producto)=>acumulador +(producto.precio*producto.cantidad),0);
+    contenedorTotal.innerText= `Lps. ${totalCalculado}`;
+    
+}
 
+botonComprar.addEventListener("click",comprarCarrito);
+
+function comprarCarrito(e) {
+    productodEnCarrito.length=0;
+    localStorage.setItem("productos-en-carrito",JSON.stringify(productodEnCarrito) );
+
+    carritoVacio.classList.add("disable");
+    carritoConProductos.classList.add("disable");
+    carritoAcciones.classList.add("disable");
+    carritoComprado.classList.remove("disable");
+}

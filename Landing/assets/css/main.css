@@ -306,3 +306,28 @@ img{
     display: none;
 
 }
+
+/* usaremos las Medias QUERIES  */
+
+@media screen and (max-width:600px){
+    .envoltorio{
+        grid-template-columns: 1fr;
+     
+    }
+
+    aside{
+        position: fixed;
+        z-index: 9;
+        display: none;
+
+    }
+
+    main{
+        margin: 1rem;
+    }
+
+    .contenedor-productos{
+        grid-template-columns: 1fr 1fr; 
+
+    }
+}

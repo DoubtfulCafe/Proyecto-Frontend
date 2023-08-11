@@ -9,6 +9,8 @@ la paleta de colores*/
     --clr-white: rgba(255, 255, 255, 0.682);
     --clr-gray: #e2e2e2;
     --clr-red: #961818;
+    --clr-prueba: #961818;
+
 }
 
 .degradado-difuminado {
@@ -300,6 +302,8 @@ img{
     
 }
 
+
+
 /*haremos un CSS para lsas cosas que ocultamos*/
 
 .disable{
@@ -307,27 +311,96 @@ img{
 
 }
 
+.header-mobile{
+    display: none;
+}
+
+.close-menu{
+    display: none;
+}
+
 /* usaremos las Medias QUERIES  */
 
 @media screen and (max-width:600px){
     .envoltorio{
-        grid-template-columns: 1fr;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
      
     }
+
+    .degradado-difuminado {
+        background: linear-gradient(45deg, 
+          rgba(195, 107, 217, 0.6),  /* Color con transparencia */
+          rgba(61, 41, 177, 0.6),    /* Color con transparencia */
+          rgba(108, 101, 196, 0.6),  /* Color con transparencia */
+          rgba(195, 107, 217, 0.6)   /* Color con transparencia */
+        );
+        /* Otras propiedades de diseño si las necesitas */
+        /* width: ...; */
+        /* height: ...; */
+        /* padding: ...; */
+        /* etc. */
+    }
+    
+
+   
 
     aside{
         position: fixed;
         z-index: 9;
-        display: none;
-
+        left: 0;
+        box-shadow: 0 0 100vmax rgba(0, 0,0, .75);
+        transform: translate(-100%);
+        opacity: 0;
+        visibility: hidden; /*para que no nos tape el contenido del resto  */
+        transform: .2s;
+        background: linear-gradient(45deg, 
+        rgba(195, 107, 217, 0.984),  /* Color con transparencia */
+        rgba(61, 41, 177, 0.984),    /* Color con transparencia */
+        rgba(108, 101, 196, 0.984),  /* Color con transparencia */
+        rgba(195, 107, 217, 0.984)   /* Color con transparencia */
+      );
+    }
+    .aside-visible{
+        transform: translate(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     main{
         margin: 1rem;
+        margin-top: 0;
+        padding: 2rem;
+
     }
 
     .contenedor-productos{
         grid-template-columns: 1fr 1fr; 
 
+    }
+    .header-mobile{
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-mobile .logo{
+        color: var(--clr-gray);
+    }
+
+    .open-menu .close-menu{
+        background-color: transparent;
+        color: var(--clr-gray);
+        border: 0;
+        font-size: 2rem;
+        
+
+    }
+    .close-menu{
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
     }
 }

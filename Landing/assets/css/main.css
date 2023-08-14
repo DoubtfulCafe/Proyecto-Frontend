@@ -320,6 +320,17 @@ img{
 }
 
 /* usaremos las Medias QUERIES  */
+@media screen and (max-width:800px){
+    .contenedor-productos{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media screen and (max-width:675px){
+    .contenedor-productos{
+        grid-template-columns: 1fr 1fr ;
+    }
+}
+
 
 @media screen and (max-width:600px){
     .envoltorio{
@@ -410,5 +421,30 @@ img{
         justify-content: flex-start;
         padding: .5rem;
 
+    }
+    .carrito-producto-subtotal{
+        display: none;
+    }
+
+    .carrito-acciones{
+        flex-wrap: wrap;
+        row-gap: 1rem;
+    }
+    .carrito-producto-titulo{
+        font-size: xx-small;
+    }
+    .carrito-producto-cantidad{
+        display: grid;
+        place-content: center;
+    
+        text-align: justify;
+        margin: 0;
+    }
+
+}
+
+@media screen and (max-width:800px){
+    .contenedor-productos{
+        grid-template-columns: 1fr ;
     }
 }

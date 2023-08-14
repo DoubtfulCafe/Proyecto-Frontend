@@ -403,4 +403,12 @@ img{
         top: 1rem;
         right: 1rem;
     }
+
+    .carrito-productos{
+        gap:1rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: .5rem;
+
+    }
 }

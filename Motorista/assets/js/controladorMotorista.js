@@ -53,3 +53,45 @@ function cambiarPestaña(idIcon, idDiv) {
     icono.style.color = 'blue'; /* Cambio de color del icono cuando se oculta el div */
   }
 }
+
+
+
+
+const renderizadoMotoristaPerfil = (id) =>{
+
+  //usuarios.forEach(usuario => {
+  //  
+  //})
+  //
+
+  document.getElementById("perfil-motorista").innerHTML = 
+      `<img id="img-perfil-motorista" class="imagen-redonda" src="assets/img_motorista/foto-perfil-motorista.jpg" alt="">
+      <section id="nombre-tarjeta-perfil">
+          <section id="texto-nombre">
+              Kimpachi Sensei
+          </section>
+          <section id="texto-codigo">
+              ID: 010823
+          </section>
+      </section>`;
+
+  
+      chats.forEach(chat =>{
+          document.getElementById("lista-chats").innerHTML += 
+          `<div id="card-chats" onclick="detalleChat(id)">
+              <div>
+                  ${validarFotoDestinatario(chat.imagenDestinatario, chat.nombreDestinatario)}
+              </div>
+              <div id="nombre-usuario-lista-chat">
+                  ${chat.nombreDestinatario}
+                      <div id="texto-usuario-lista-chat">
+                          ${chat.ultimoMensaje}
+                      </div>
+              </div>
+              <div id="hora-lista-chat">
+                  ${chat.horaUltimoMensaje}
+              </div>
+          </div>`;
+      })
+  
+}

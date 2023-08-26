@@ -1,220 +1,11 @@
-// PRODUCTOS
-const productos = [
-    // headsets
-    {
-        id: "headset-01",
-        titulo: "headset 01",
-        imagen: "assets/img/Headset/01.jpg",
-        categoria: {
-            nombre: "Headsets",
-            id: "headset"
-        },
-        precio: 1000
-    },
-    {
-        id: "headset-02",
-        titulo: "headset 02",
-        imagen: "assets/img/Headset/02.jpg",
-        categoria: {
-            nombre: "Headsets",
-            id: "headset"
-        },
-        precio: 1000
-    },
-    {
-        id: "headset-03",
-        titulo: "headset 03",
-        imagen: "assets/img/Headset/03.jpg",
-        categoria: {
-            nombre: "Headsets",
-            id: "headset"
-        },
-        precio: 1000
-    },
+let productos = [];
 
-    {
-        id: "headset-04",
-        titulo: "headset 04",
-        imagen: "assets/img/Headset/04.jpg",
-        categoria: {
-            nombre: "Headsets",
-            id: "headset"
-        },
-        precio: 1000
-    },
-    {
-        id: "headset-05",
-        titulo: "headset 05",
-        imagen: "assets/img/Headset/05.jpg",
-        categoria: {
-            nombre: "Headsets",
-            id: "headset"
-        },
-        precio: 1000
-    },
-    {
-        id: "headset-06",
-        titulo: "headset 06",
-        imagen: "assets/img/Headset/06.jpg",
-        categoria: {
-            nombre: "Headsets",
-            id: "headset"
-        },
-        precio: 1000
-    },
-    {
-        id: "headset-07",
-        titulo: "headset 07",
-        imagen: "assets/img/Headset/07.jpg",
-        categoria: {
-            nombre: "Headsets",
-            id: "headset"
-        },
-        precio: 1000
-    },
-
-    // Teclados
-    {
-        id: "teclado-01",
-        titulo: "Teclado 01",
-        imagen: "assets/img/teclados/01.jpg",
-        categoria: {
-            nombre: "Teclados",
-            id: "teclados"
-        },
-        precio: 1000
-    },
-    {
-        id: "teclado-02",
-        titulo: "Teclado 02",
-        imagen: "assets/img/teclados/02.jpg",
-        categoria: {
-            nombre: "Teclados",
-            id: "teclados"
-        },
-        precio: 1000
-    },{
-        id: "teclado-03",
-        titulo: "Teclado 03",
-        imagen: "assets/img/teclados/03.jpg",
-        categoria: {
-            nombre: "Teclados",
-            id: "teclados"
-        },
-        precio: 1000
-    },{
-        id: "teclado-04",
-        titulo: "Teclado 04",
-        imagen: "assets/img/teclados/04.jpg",
-        categoria: {
-            nombre: "Teclados",
-            id: "teclados"
-        },
-        precio: 1000
-    },{
-        id: "teclado-05",
-        titulo: "Teclado 05",
-        imagen: "assets/img/teclados/05.jpg",
-        categoria: {
-            nombre: "Teclados",
-            id: "teclados"
-        },
-        precio: 1000
-    },{
-        id: "teclado-06",
-        titulo: "Teclado 06",
-        imagen: "assets/img/teclados/06.jpg",
-        categoria: {
-            nombre: "Teclados",
-            id: "teclados"
-        },
-        precio: 1000
-    },{
-        id: "teclado-07",
-        titulo: "Teclado 07",
-        imagen: "assets/img/teclados/07.jpg",
-        categoria: {
-            nombre: "Teclados",
-            id: "teclados"
-        },
-        precio: 1000
-    },{
-        id: "teclado-07",
-        titulo: "Teclado 07",
-        imagen: "assets/img/teclados/07.jpg",
-        categoria: {
-            nombre: "Teclados",
-            id: "teclados"
-        },
-        precio: 1000
-    },
-    // Mouse
-    {
-        id: "mouse-01",
-        titulo: "Mouse 01",
-        imagen: "assets/img/mouse/01.jpg",
-        categoria: {
-            nombre: "Mouses",
-            id: "mouses"
-        },
-        precio: 1000
-    }, {
-        id: "mouse-02",
-        titulo: "Mouse 02",
-        imagen: "assets/img/mouse/02.jpg",
-        categoria: {
-            nombre: "Mouses",
-            id: "mouses"
-        },
-        precio: 1000
-    }, {
-        id: "mouse-03",
-        titulo: "Mouse 03",
-        imagen: "assets/img/mouse/03.jpg",
-        categoria: {
-            nombre: "Mouses",
-            id: "mouses"
-        },
-        precio: 1000
-    }, {
-        id: "mouse-04",
-        titulo: "Mouse 04",
-        imagen: "assets/img/mouse/04.jpg",
-        categoria: {
-            nombre: "Mouses",
-            id: "mouses"
-        },
-        precio: 1000
-    }, {
-        id: "mouse-05",
-        titulo: "Mouse 05",
-        imagen: "assets/img/mouse/05.jpg",
-        categoria: {
-            nombre: "Mouses",
-            id: "mouses"
-        },
-        precio: 1000
-    }, {
-        id: "mouse-05",
-        titulo: "Mouse 05",
-        imagen: "assets/img/mouse/05.jpg",
-        categoria: {
-            nombre: "Mouses",
-            id: "mouses"
-        },
-        precio: 1000
-    }, {
-        id: "mouse-06",
-        titulo: "Mouse 06",
-        imagen: "assets/img/mouse/06.jpg",
-        categoria: {
-            nombre: "Mouses",
-            id: "mouses"
-        },
-        precio: 1000
-    }
-    
-];
+fetch("/Landing/assets/js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        CargarProductos(productos);
+    })
 
 const contenedorProducto = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
@@ -250,7 +41,7 @@ function CargarProductos(productosElegidos) {
     
 }
 
-CargarProductos(productos);
+
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click",(e)=>{
@@ -313,6 +104,29 @@ if (productosEnCarritoList) {
 //lo agregen
 
 function agregarAlCarrito(evento){
+
+
+
+    //agragando una ventanita cada vez que se agrega un producto usando toastify
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #4b33a8, #785ce9)",
+          borderRadius: "2rem",
+          textTransform: "uppercase",
+          fontSize: ".75rem"
+        },
+        offset: {
+            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+        onClick: function(){} // Callback after click
+      }).showToast();
 
     const idBoton = evento.currentTarget.id;
     //jalamos el id de producto que anterior mente le asignamos al boton en la linea 237

@@ -13,6 +13,36 @@
         <center>Lista de Pedidos</center>
     </div>
 
+    <div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="modal-container-inputs">
+                                    <input class="form-control" type="text"  id="input-nombre-repartidor" placeholder="Nombre Repartidor">
+                                    <input class="form-control" type="text"  id="input-telefono" placeholder="Numero de Telefono">
+                                    <input class="form-control" type="text"  id="input-correo" placeholder="CorreoElectronico">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button"  id="boton-modal-cancelar" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" id="boton-modal-guardar" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <!--Modal Final-->
+
+        <!--aqui boton modal etiqueta i-->
+        <i class="fa-solid fa-pen" id="editar-info" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+    </div>
 
     <div id="pie-pagina" class="borde-difuminado">
         <a href="indexMotorista.html" id="icono-user" class="no-seleccionado" onclick="colorIcono('this')"><i class="fa-solid fa-user"></i></a>

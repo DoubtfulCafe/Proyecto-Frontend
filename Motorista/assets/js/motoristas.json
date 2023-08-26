@@ -1,0 +1,81 @@
+[
+    {
+        "id" : "1010",
+        "nombre" : "Kimpachi Sensei",
+        "telefono" : "98718916",
+        "correo" : "kimpachisensei@gmail.com",
+        "imagen" : "https://static.wikia.nocookie.net/gintama/images/2/2e/Paako_sq.jpg/revision/latest?cb=20220622120440",
+        "pedidosPendientes" : [
+            {
+             "ubicacion":"Barrio Karakura",
+             "limiteEntrega":"2 de Abril",
+             "horaLimite" : "1600",
+             "cliente" : "Kagura"
+            },
+            {
+             "ubicacion":"Barrio Karakura",
+             "limiteEntrega":"5 de Abril",
+             "horaLimite" : "0900",
+             "cliente" : "Okita"
+            },
+            {
+                "ubicacion":"Barrio Karakura",
+                "limiteEntrega":"5 de Abril",
+                "horaLimite" : "0900",
+                "cliente" : "Okita"
+               }
+         ]
+    },
+    {
+        "id" : "2020",
+        "nombre" : "Gintoki Sakata",
+        "telefono" : "98718916",
+        "correo" : "gintokisakata@gmail.com"
+    },
+    {
+        "id" : "3030",
+        "nombre" : "Kintoki Sakata",
+        "telefono" : "98718916",
+        "correo" : "kintokisakata@gmail.com",
+        "imagen" : "https://static.wikia.nocookie.net/gintama/images/5…latest/scale-to-width-down/1000?cb=20120319235911",
+        "pedidosPendientes":[
+            {
+                "ubicacion":"Barrio Karakura",
+                "limiteEntrega":"2 de Abril",
+                "horaLimite" : "1600",
+                "cliente" : "Kagura"
+               }
+        ]
+
+    },
+    {
+        "id" : "4040",
+        "nombre" : "Paako",
+        "telefono" : "98718916",
+        "correo" : "paako05@gmail.com",
+        "imagen" : "https://static.wikia.nocookie.net/gintama/images/2/2e/Paako_sq.jpg/revision/latest?cb=20220622120440",
+        "pedidosPendientes" : [
+            {
+             "ubicacion":"Barrio Karakura",
+             "limiteEntrega":"2 de Abril",
+             "horaLimite" : "1600",
+             "cliente" : "Kagura"
+            },
+            {
+             "ubicacion":"Barrio Karakura",
+             "limiteEntrega":"5 de Abril",
+             "horaLimite" : "0900",
+             "cliente" : "Okita"
+            }
+         ]
+    },
+    {
+        "id" : "5050",
+        "nombre" : "Ginko Sakata",
+        "telefono" : "98718916",
+        "correo" : "ginkosakata05@gmail.com"
+    }
+
+]
+
+

@@ -1,0 +1,21 @@
+[
+    {
+     "ubicacion":"Barrio Karakura",
+     "limiteEntrega":"2 de Abril",
+     "horaLimite" : "1600",
+     "cliente" : "Kagura"
+    },
+    {
+     "ubicacion":"Barrio Karakura",
+     "limiteEntrega":"5 de Abril",
+     "horaLimite" : "0900",
+     "cliente" : "Okita"
+    },
+    {
+        "ubicacion":"Barrio Karakura",
+        "limiteEntrega":"5 de Abril",
+        "horaLimite" : "0900",
+        "cliente" : "Okita"
+    }
+
+ ]

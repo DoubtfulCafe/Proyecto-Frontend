@@ -86,6 +86,12 @@ function actualizarBotonesEliminar(){
 
 };
 function eliminarDelCarrito(e) {
+
+    
+  
+
+   
+
     const idBoton= e.currentTarget.id;
     //console.log(idBoton);
     //const  productoEliminado = productodEnCarrito.find(producto=> producto.id=== idBoton);
@@ -104,9 +110,26 @@ function eliminarDelCarrito(e) {
 botonVaciar.addEventListener("click",vaciarCarrito);
 
 function vaciarCarrito(e) {
-    productodEnCarrito.length=0;
-    localStorage.setItem("productos-en-carrito",JSON.stringify(productodEnCarrito) );
-    cargarProductosCarrito();
+    //aqui estamos aplicando SweetAlert y le saldra una alerta al cliente para sabes si esta seguro
+    // de eliminar todos los productos
+
+    Swal.fire({
+        title: '¿Estás seguro?',
+        icon: 'question',
+        html: `Se van a borrar todos los productos.`,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            productodEnCarrito.length=0;
+            localStorage.setItem("productos-en-carrito",JSON.stringify(productodEnCarrito) );
+            cargarProductosCarrito();
+        }
+      })
+    
+   
 }
 
 //mira esta funcion lo que hace es que va a sumar el total todos los productos que se agregen en el carrito

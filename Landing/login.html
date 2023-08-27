@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Motorista/assets/css/estilos-loginmotorista.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="contenedor">
+        <section id="logo-login">
+            <img src="/Motorista/assets/img_motorista/logo.jpeg" id="logo-img">
+        </section>
+        <section id="section-inputs">
+            <div id="etiqueta1">Nombre</div>
+            <input id="input-nombre" type="text">
+            <div id="etiqueta2">Contraseña</div>
+            <input id="input-contraseña" type="text">
+            <button id="boton-ingresar" type="button"><a href="indexMotorista.html">Iniciar Sesión</a></button>
+        </section>
+        <section id="enlace-registro">
+            <center onclick="formularioRegistro()">¿Eres nuevo en TechnoMarket?<br>Registrate</center>
+        </section>
+        
+    </div>
+
+    <div id="contenedor2">
+        <section id="texto-registro">
+            Registrate
+        </section>
+        <section id="section-inputs-registro">
+            <label for="Nombre">Nombre</label>
+            <input id="input-nombre" type="text" name="Nombre">
+            <label for="Apellido">Apellido</label>
+            <input id="input-apellido" type="text" name="Apellido">
+            <label for="No-Id">No. de Identidad</label>
+            <input id="input-nombre" type="text" name="No-Id">
+            <label for="Telefono">Número de Telefono</label>
+            <input id="input-nombre" type="text" name="Telefono">
+            <label for="Dirección">Dirección</label>
+            <input id="input-nombre" type="text" name="Dirección">
+            <label for="Fecha">Fecha de Nacimiento</label>
+            <input type="date" id="fecha" name="fecha" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" placeholder="dd/mm/aaaa" required>
+            <button id="boton-ingresar" type="button"><a href="...">Registrarse</a></button>
+        </section>
+    </div>
+
+    <script src="assets/js/controladorMotorista.js"></script>
+</body>
+</html>
